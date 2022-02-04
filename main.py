@@ -61,9 +61,11 @@ if __name__ == '__main__':
 
     cell_vec = []
     vicon_vec = []
+    # TODO: origin_lat_lon_alt
     e, n, u = lte.llh_to_enu(rgp_csv_path)
     tx, ty, tz = vp.read_vicon_position_data(vicon_csv_path)
 
+    # TODO : before cross-correlation shifting, vicon 100Hz data convert to 10Hz data(fit to cell)
     # cross correlation for frame shift using cell altitude and vicon altitude
     st_frame = compute_shift(tz, u)
     print("shift frame = ", st_frame)
